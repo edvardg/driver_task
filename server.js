@@ -3,11 +3,11 @@ var app         = express();
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var mongoose    = require('mongoose');
-var port        = 8080;
-// var superSecret = 'ilovescotchscotchyscotchscotch';
+var config      = require('./app/config/config');
 
 // connect to our database (hosted on modulus.io)
-mongoose.connect('mongodb://localhost:27017/driver_task');
+//mongoose.connect('mongodb://localhost:27017/driver_task');
+mongoose.Promise = require('bluebird');
 
 // APP CONFIGURATION
 // use body parser so we can grab information from POST requests
@@ -38,5 +38,5 @@ app.use('/api', apiRoutes);
 
 // START THE SERVER
 // ==================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
+app.listen(config.port);
+console.log('Server started on port ' + config.port);

@@ -1,5 +1,6 @@
 var mongoose    = require('mongoose');
 var Schema      = mongoose.Schema;
+var connection  = require('../db/connection');
 
 var DriverSchema = new Schema({
     username: {type: String, required: true, index: {unique: 1}},
@@ -7,4 +8,4 @@ var DriverSchema = new Schema({
     reserved: {type: Boolean, required: true, default: false}
 });
 
-module.exports = mongoose.model('Driver', DriverSchema, 'drivers');
+module.exports = connection.model('Driver', DriverSchema, 'drivers');

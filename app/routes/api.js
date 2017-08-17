@@ -1,10 +1,4 @@
-/**
- * Created by edvard on 8/16/17.
- */
-
 var express     = require('express');
-var morgan      = require('morgan');
-var mongoose    = require('mongoose');
 var jwt         = require('jsonwebtoken');
 var config      = require('../config/config');
 var Controller  = require('../controllers/controller');
@@ -19,7 +13,7 @@ module.exports = function(app, express) {
     apiRouter.use(function (req, res, next) {
         console.log('Somebody just came to our app!');
         // check header or url parameters or post parameters for token
-        var token = req.body.token || req.param('token') || req.headers['x-access-token'];
+        var token = req.body.token || req.params.token || req.headers['x-access-token'];
 
         // decode token
         if (token) {

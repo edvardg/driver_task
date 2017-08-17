@@ -1,6 +1,7 @@
 var mongoose    = require('mongoose');
 var Schema      = mongoose.Schema;
 var bcrypt      = require('bcrypt-nodejs');
+var connection  = require('../db/connection');
 
 var ClientSchema = new Schema({
     username: {type: String, required: true, index: {unique: true}},
@@ -27,4 +28,4 @@ ClientSchema.methods.comparePassword = function (password) {
     return bcrypt.compareSync(password, client.password);
 };
 
-module.exports = mongoose.model('Client', ClientSchema, 'clients');
+module.exports = connection.model('Client', ClientSchema, 'clients');
