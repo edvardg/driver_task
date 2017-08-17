@@ -97,7 +97,7 @@ function Manager() {
                 if (!driver) {
                     return callback({ success: false, code: 404, err: {message: "Driver not found!"}});
                 }
-                return callback({success: true, code: 200, result: {message: "Driver " + driver.username + " is reserved!"}});
+                return callback({success: true, code: 200, result: {message: "Driver " + driver.username + " is reserved!", driver: driver}});
             });
         });
     };

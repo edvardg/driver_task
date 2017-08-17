@@ -14,7 +14,7 @@ var createDriver = function (count) {
                 console.log('Error when creating drivers: ' + JSON.stringify(err));
                 return;
             }
-            console.log('Driver with name=' + driverName + ' is successfuly create');
+            console.log('A new driver is successfuly created');
         });
     }
 };
